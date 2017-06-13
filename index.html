@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		#map {
+			height: 600px;
+			width: 100%;
+		}
+	</style>
+</head>
+	<body>
+		<h3>My Google Maps Demo</h3>
+		<div id="map"></div>
+		<script>
+			var tiendas = [
+				{
+					name: 'Spa Madrid',
+					telephone: '91 532 76 67',
+					address: 'Calle Del Carmen 24',
+					city: 'Madrid, 28013',
+					location: {
+						lat: 40.4189619,
+						lng: -3.7046963
+					}
+				},
+				{
+					name: 'Lush Fuencarra',
+					telephone: '91 523 48 32',
+					address: 'Calle Fuencarral 64',
+					city: 'Madrid, 28004',
+					location: {
+						lat: 40.4242407,
+						lng: -3.7027706
+					}
+				},
+				{
+					name: 'Lush Alcalá',
+					telephone: '914 35 42 53',
+					address: 'Calle Alcalá 104',
+					city: 'Madrid, 28009',
+					location: {
+						lat: 40.4252412,
+						lng: -3.6765786
+					}
+				},
+				{
+					name: 'Lush LaVaguada',
+					telephone: '91 731 58 52',
+					address: 'CC La Vaguada  c/Monforte de Lemo',
+					city: 'Madrid, 28029',
+					location: {
+						lat: 40.4799979,
+						lng: -3.7096667
+					}
+				},
+				{
+					name: 'Lush Plenilunio',
+					telephone: '911 93 56 64',
+					address: 'Calle Aracne, 3',
+					city: 'Madrid, 28022',
+					location: {
+						lat: 40.4466365,
+						lng: -3.5892125
+					}
+				},
+				{
+					name: 'Lush Valencia',
+					telephone: '96 352 16 34',
+					address: 'Colón 13',
+					city: 'Valencia, 46004',
+					location: {
+						lat: 39.468285,
+						lng: -0.3756067
+					}
+				},
+			];
+
+			function getContentTienda(tienda) {
+				return '<h1>' + tienda.name + '</h1>' +
+					'<p>' + tienda.telephone + '</p>' +
+					'<p>' + tienda.address + '<br/>' + tienda.city + '</p>';
+			}
+
+			function initMap() {
+				var markers = [];
+				var ventanasInfo = [];
+				var spain = {lat: 40.0998791, lng: -3.842226};
+				var map = new google.maps.Map(document.getElementById('map'), {
+					zoom: 6,
+					center: spain
+				});
+				for (var i = 0; i < tiendas.length; i++) {
+					var tienda = tiendas[i];
+					var marker = new google.maps.Marker({
+						position: tienda.location,
+						map: map
+					});
+					markers.push(marker);
+					(function (i) {
+						marker.addListener('click', function() {
+							var ventana = new google.maps.InfoWindow({
+								content: getContentTienda(tiendas[i])
+							});
+							for (var j = 0; j < ventanasInfo.length; j++) {
+								ventanasInfo[j].close();
+							}
+							ventanasInfo.push(ventana);
+							ventana.open(map, markers[i]);
+						});
+					}) (i);
+				}
+			}
+		</script>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKS43R2XnwVFOoZUFMO072OpvgHwSMz_k&callback=initMap">
+		</script>
+	</body>
+</html>
