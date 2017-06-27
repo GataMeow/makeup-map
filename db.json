@@ -1,0 +1,166 @@
+{
+  "marcas" : {
+    "Lush": {
+      "marca_1": {
+        "name": "Spa Madrid",
+        "telephone": "91 532 76 67",
+        "address": "Calle Del Carmen 24",
+        "city": "Madrid, 28013",
+        "location": {
+          "lat": 40.4189619,
+          "lng": -3.7046963
+        }
+      },
+      "marca_2": {
+        "name": "Lush Fuencarral",
+        "telephone": "91 523 48 32",
+        "address": "Calle Fuencarral 64",
+        "city": "Madrid, 28004",
+        "location": {
+          "lat": 40.4242407,
+          "lng": -3.7027706
+        }
+      },
+      "marca_3": {
+        "name": "Lush Alcalá",
+        "telephone": "914 35 42 53",
+        "address": "Calle Alcalá 104",
+        "city": "Madrid, 28009",
+        "location": {
+          "lat": 40.4252412,
+          "lng": -3.6765786
+        }
+      },
+      "marca_4": {
+        "name": "Lush LaVaguada",
+        "telephone": "91 731 58 52",
+        "address": "CC La Vaguada  c/Monforte de Lemos",
+        "city": "Madrid, 28029",
+        "location": {
+          "lat": 40.4799979,
+          "lng": -3.7096667
+        }
+      },
+      "marca_5": {
+        "name": "Lush Plenilunio",
+        "telephone": "911 93 56 64",
+        "address": "Calle Aracne, 3",
+        "city": "Madrid, 28022",
+        "location": {
+          "lat": 40.4466365,
+          "lng": -3.5892125
+        }
+      },
+      "marca_6": {
+        "name": "Lush Valencia",
+        "telephone": "96 352 16 34",
+        "address": "Colón 13",
+        "city": "Valencia, 46004",
+        "location": {
+          "lat": 39.468285,
+          "lng": -0.3756067
+        }
+      },
+      "marca_7": {
+        "name": "Lush Bilbao",
+        "telephone": "945 09 00 49",
+        "address": "On Diego López Haroko Kale Nagusia, 6",
+        "city": "Bilbao, 48001",
+        "location": {
+          "lat": 43.2618069,
+          "lng": -2.9305694
+        }
+      },
+      "marca_8": {
+        "name": "Lush Santander",
+        "telephone": "94 236 46 67",
+        "address": "Calle San Francisco, 15",
+        "city": "Santander, 39002",
+        "location": {
+          "lat": 43.4618864,
+          "lng": -3.8102904
+        }
+      },
+      "marca_9": {
+        "name": "Lush Sevilla",
+        "telephone": "945 09 00 49",
+        "address": "Calle Sierpes, 58",
+        "city": "Sevilla, 41004",
+        "location": {
+          "lat": 37.3902076,
+          "lng": -5.9967679
+        }
+      },
+      "marca_10": {
+        "name": "Lush Gran Vía 2",
+        "telephone": "93 259 12 36",
+        "address": "CC Gran Via 2 Av. Granvia 75",
+        "city": "L'Hospitalet de Lobregat, 8908",
+        "location": {
+          "lat": 41.3591154 ,
+          "lng": 2.1273769
+        }
+      },
+      "marca_11": {
+        "name": "Lush L’Illa",
+        "telephone": "93 410 25 84",
+        "address": "CC L'Illa Diagonal Av. Diagonal 545-565",
+        "city": "Barcelona, 08029",
+        "location": {
+          "lat": 41.3896623,
+          "lng": 2.132882
+        }
+      },
+      "marca_12": {
+        "name": "Lush Arenas",
+        "telephone": "93 327 80 49",
+        "address": "CC Las Arenas Gran Vía de les Corts Catalanes 373",
+        "city": "Barcelona, 08015",
+        "location": {
+          "lat": 41.3762983,
+          "lng": 2.1470282
+        }
+      },
+      "marca_13": {
+        "name": "Lush Barcelona Centro",
+        "telephone": "93 360 70 96",
+        "address": "Rambla Catalunya 52",
+        "city": "Barcelona, 08007",
+        "location": {
+          "lat": 41.391376,
+          "lng": 2.1377112
+        }
+      },
+      "marca_14": {
+        "name": "Lush Maremagnum",
+        "telephone": "931 99 83 99",
+        "address": "Edifici Maremàgnum, Moll d'Espanya, 5 ",
+        "city": "Barcelona, 08039",
+        "location": {
+          "lat": 41.4408095,
+          "lng": 2.1282698
+        }
+      },
+      "marca_15": {
+        "name": "Lush La Maquinista",
+        "telephone": "931 99 83 98",
+        "address": "Carrer de Potosí, 2",
+        "city": "Barcelona, 08030",
+        "location": {
+          "lat": 41.4408309,
+          "lng": 2.1962987
+        }
+      },
+      "marca_16": {
+        "name": "Lush Mallorca",
+        "telephone": "97 172 29 12",
+        "address": "Calle Sant Miquel 46 ",
+        "city": "Palma de Mallorca, 7002",
+        "location": {
+          "lat": 39.574619 ,
+          "lng": 2.6500144
+        }
+      }
+    }
+  }
+}
