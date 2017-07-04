@@ -41,7 +41,7 @@
 					center: spain
 				});
 				var database = firebase.database();
-				var lush = database.ref('marcas/Lush');
+				var lush = database.ref('tiendas/Sephora');
 				lush.on('value', function(snapshot) {
 					var tiendas = snapshot.val();
 					for (var i in tiendas) {
