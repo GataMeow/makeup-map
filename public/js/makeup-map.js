@@ -15,37 +15,53 @@ function getContentTienda(tienda) {
 		'<p>' + tienda.address + '<br/>' + tienda.city + '</p>';
 }
 
+function showTiendasInMap(markers, ventanasInfo, map, tiendas) {
+	for (var i in tiendas) {
+		var tienda = tiendas[i];
+		var marker = new google.maps.Marker({
+			position: tienda.location,
+			map: map
+		});
+		markers.push(marker);
+		(function (i) {
+			marker.addListener('click', function() {
+				var ventana = new google.maps.InfoWindow({
+					content: getContentTienda(tiendas[i])
+				});
+				for (var j = 0; j < ventanasInfo.length; j++) {
+					ventanasInfo[j].close();
+				}
+				ventanasInfo.push(ventana);
+				ventana.open(map, markers[i]);
+			});
+		}) (i);
+	};
+}
+
 function initMap() {
 	var markers = [];
 	var ventanasInfo = [];
+	var marcas = [];
 	var spain = {lat: 40.0998791, lng: -3.842226};
 	var map = new google.maps.Map(document.getElementById('map'), {
 		zoom: 6,
 		center: spain
 	});
 	var database = firebase.database();
-	var lush = database.ref('tiendas/Sephora');
-	lush.on('value', function(snapshot) {
-		var tiendas = snapshot.val();
-		for (var i in tiendas) {
-			var tienda = tiendas[i];
-			var marker = new google.maps.Marker({
-				position: tienda.location,
-				map: map
+	database.ref('tiendas').on('value', function(snapshot) {
+		var db = snapshot.val();
+		for (var marca in db) {
+			marcas.push({
+				name: marca,
+				tiendas: db[marca]
 			});
-			markers.push(marker);
-			(function (i) {
-				marker.addListener('click', function() {
-					var ventana = new google.maps.InfoWindow({
-						content: getContentTienda(tiendas[i])
-					});
-					for (var j = 0; j < ventanasInfo.length; j++) {
-						ventanasInfo[j].close();
-					}
-					ventanasInfo.push(ventana);
-					ventana.open(map, markers[i]);
-				});
-			}) (i);
-		};
+		}
+		showTiendasInMap(markers, ventanasInfo, map, marcas[3].tiendas);
 	});
 }
+
+$( function() {
+	$( "#accordion" ).accordion({
+		heightStyle: "content"
+	});
+} );
