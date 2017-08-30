@@ -16,6 +16,9 @@ function getContentTienda(tienda) {
 }
 
 function showTiendasInMap(markers, ventanasInfo, map, tiendas) {
+	for (var i = 0; i < markers.length; i++) {
+		markers[i].setMap(null);
+	}
 	for (var i in tiendas) {
 		var tienda = tiendas[i];
 		var marker = new google.maps.Marker({
@@ -50,24 +53,31 @@ function initMap() {
 	var database = firebase.database();
 	database.ref('tiendas').on('value', function(snapshot) {
 		var db = snapshot.val();
+		var count = 0;
 		for (var marca in db) {
 			marcas.push({
 				name: marca,
 				tiendas: db[marca]
 			});
 			$('#accordion').append(
-				'<h3>' + marca + '</h3><div><p data-tienda="' + marca + '"></p></div>'
+				'<h3 id="marca_' + count + '">' + marca + '</h3><div><p data-tienda="' + marca + '"></p></div>'
 			);
+			(function(count) {
+				$('#marca_' + count).click(function() {
+					showTiendasInMap(markers, ventanasInfo, map, marcas[count].tiendas);
+				});
+			})(count);
 			(function(marca) {
 				database.ref('webs/' + marca).on('value', function(snapshot) {
 					var url = snapshot.val();
 					$('p[data-tienda="' + marca + '"]').html('<a target="_blank" href="' + url + '">' + url + '</a>');
 				});
 			})(marca);
+			count++;
 		}
 		$( "#accordion" ).accordion({
 			heightStyle: "content"
 		});
-		showTiendasInMap(markers, ventanasInfo, map, marcas[3].tiendas);
+		showTiendasInMap(markers, ventanasInfo, map, marcas[0].tiendas);
 	});
 }
