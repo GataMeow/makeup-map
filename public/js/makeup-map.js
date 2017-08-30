@@ -55,13 +55,19 @@ function initMap() {
 				name: marca,
 				tiendas: db[marca]
 			});
+			$('#accordion').append(
+				'<h3>' + marca + '</h3><div><p data-tienda="' + marca + '"></p></div>'
+			);
+			(function(marca) {
+				database.ref('webs/' + marca).on('value', function(snapshot) {
+					var url = snapshot.val();
+					$('p[data-tienda="' + marca + '"]').html('<a target="_blank" href="' + url + '">' + url + '</a>');
+				});
+			})(marca);
 		}
+		$( "#accordion" ).accordion({
+			heightStyle: "content"
+		});
 		showTiendasInMap(markers, ventanasInfo, map, marcas[3].tiendas);
 	});
 }
-
-$( function() {
-	$( "#accordion" ).accordion({
-		heightStyle: "content"
-	});
-} );
