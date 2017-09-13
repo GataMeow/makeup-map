@@ -30,8 +30,10 @@ function showTiendasInMap(markers, ventanasInfo, map, tiendas) {
             map: map
         });
         markers.push(marker);
-        (function (i) {
+        (function (i, marker) {
             marker.addListener('click', function() {
+                console.log('Mostrando ventana ' + i);
+                console.log('Marker: ' + marker);
                 var ventana = new google.maps.InfoWindow({
                     content: getContentTienda(tiendas[i])
                 });
@@ -39,9 +41,9 @@ function showTiendasInMap(markers, ventanasInfo, map, tiendas) {
                     ventanasInfo[j].close();
                 }
                 ventanasInfo.push(ventana);
-                ventana.open(map, markers[i]);
+                ventana.open(map, marker);
             });
-        }) (i);
+        }) (i, marker);
     };
 }
 
