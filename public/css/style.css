@@ -1,12 +1,12 @@
 #map {
-    height: 600px;
+    height: 400px;
     width: 75%;
     float: right;
     border-radius: 20px;
 }
 
 #marcas {
-    height: 600px;
+    height: 400px;
     width: 100%;
     float: left;
 }
