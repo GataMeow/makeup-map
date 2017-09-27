@@ -81,7 +81,8 @@ function buildMenuLateral(markers, ventanasInfo, map, database, marcas) {
             count++;
         }
         $( "#accordion" ).accordion({
-            heightStyle: "content"
+            heightStyle: "content",
+            collapsible: true
         });
     });
 }
