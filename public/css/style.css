@@ -19,7 +19,16 @@
 }
 .ui-state-default {
     border:0;
+    outline-color: white;
 }
 .ui-widget {
     font-family: Vidaloka,Arial;
-    }
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    background: #e7d6e1;
+    border: 1px solid #e7d6e1;
+    outline-color: white;
+}
+.ui-visual-focus {
+    box-shadow: 0 0 3px 1px rgb(255, 255, 255);
+}
