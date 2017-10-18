@@ -4,6 +4,15 @@
     float: right;
     border-radius: 20px;
 }
+#map-mobile {
+    height: 400px;
+    width: 100%;
+    float: right;
+    border-radius: 20px;
+}
+#combo {
+    width: 100%;
+}
 
 #marcas {
     height: 400px;
