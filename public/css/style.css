@@ -44,3 +44,7 @@
 .ui-visual-focus {
     box-shadow: 0 0 3px 1px rgb(255, 255, 255);
 }
+
+.div-urls a {
+    color: #333333;
+}
