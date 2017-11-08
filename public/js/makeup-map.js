@@ -32,8 +32,6 @@ function showTiendasInMap(markers, ventanasInfo, map, tiendas) {
         markers.push(marker);
         (function (i, marker) {
             marker.addListener('click', function() {
-                console.log('Mostrando ventana ' + i);
-                console.log('Marker: ' + marker);
                 var ventana = new google.maps.InfoWindow({
                     content: getContentTienda(tiendas[i])
                 });
@@ -66,6 +64,40 @@ function buildMenuLateral(markers, ventanasInfo, map, database, marcas) {
                 element = element + '<p><a target="_blank" href="' + urls + '">' + urls + '</a></p>';
             }
             element = element + '</div>';
+
+            var indice_en_marcas = 0;
+            while (indice_en_marcas < marcas.length && marcas[indice_en_marcas].name != marca) {
+                indice_en_marcas++;
+            }
+            if (indice_en_marcas >= marcas.length) {
+                marcas.push({
+                    name: marca,
+                    tiendas: []
+                });
+            }
+
+            var new_index = 0;
+            for (var index in marcas) {
+                var marca_existente = marcas[index];
+                for (var i in marca_existente.tiendas) {
+                    var tienda = marca_existente.tiendas[i];
+                    if (tienda.brands != undefined) {
+                        for (var j in tienda.brands) {
+                            var brand = tienda.brands[j];
+                            if (brand == marca) {
+                                marcas[indice_en_marcas].tiendas['virtual_' + new_index] = {
+                                    address: tienda.address,
+                                    city: tienda.city,
+                                    location: tienda.location,
+                                    name: tienda.name,
+                                    telephone: tienda.telephone
+                                };
+                                new_index++;
+                            }
+                        }
+                    }
+                }
+            }
 
             $('#accordion').append(element);
             (function(count) {
